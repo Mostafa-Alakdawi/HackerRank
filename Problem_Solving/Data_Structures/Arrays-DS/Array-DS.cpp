@@ -6,7 +6,20 @@ vector<string> split_string(string);
 
 // Complete the reverseArray function below.
 vector<int> reverseArray(vector<int> a) {
+    vector<int> Reversed(a.size());
+    int med = a.size()/2;
 
+    if(a.size() == 1 || a.size() == 0){
+        return a;
+    }
+
+    for(int index = 0; index < med; ++index){
+        int Temp = a[index];
+        a[index] = a[a.size() - (index+1)];
+        a[a.size() - (index+1)] = Temp;
+    }
+
+    return a;
 
 }
 
