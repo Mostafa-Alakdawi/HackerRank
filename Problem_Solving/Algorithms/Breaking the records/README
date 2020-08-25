@@ -1,0 +1,15 @@
+Complete the breakingRecords function in the editor below. It must return an integer array containing the numbers of times she broke her records. Index  is for breaking most points records, and index  is for breaking least points records.
+
+breakingRecords has the following parameter(s):
+
+scores: an array of integers
+Input Format
+
+The first line contains an integer , the number of games.
+The second line contains  space-separated integers describing the respective values of scores.
+
+Constraints
+
+Output Format
+
+Print two space-seperated integers describing the respective numbers of times her best (highest) score increased and her worst (lowest) score decreased.
