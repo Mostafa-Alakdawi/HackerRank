@@ -3,10 +3,42 @@
 using namespace std;
 
 vector<string> split_string(string);
+vector<int> breakingRecords(vector<int> scores);
 
-// Complete the breakingRecords function below.
 vector<int> breakingRecords(vector<int> scores) {
+    vector<int> result (2);
+    int bestRecord = 0;
+    int bestRecordBreakCounter = 0;
+    int worstRecord = 0;
+    int worstRecordBreakCounter = 0;
 
+    if (scores.size() == 0) {
+        return scores;
+    }
+
+    else{
+        bestRecord = scores[0];
+        worstRecord = scores[0];
+
+        for(int index = 1; index < scores.size(); index++){
+            
+            if(scores[index] < worstRecord){
+                worstRecord = scores[index];
+                worstRecordBreakCounter++;
+            }
+
+            else if (scores[index] > bestRecord){
+                bestRecord = scores[index];
+                bestRecordBreakCounter++;
+            }
+            
+        }
+
+        result[0] = bestRecordBreakCounter;
+        result[1] = worstRecordBreakCounter;
+    }
+
+    return result;
 
 }
 
