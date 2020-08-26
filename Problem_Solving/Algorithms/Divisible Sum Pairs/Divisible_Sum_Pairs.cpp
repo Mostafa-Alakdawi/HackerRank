@@ -3,11 +3,44 @@
 using namespace std;
 
 vector<string> split_string(string);
+int getSecondElement(int firstEementIndex, int firstEement, int k, vector<int> ar);
+int divisibleSumPairs(int n, int k, vector<int> ar);
 
-// Complete the divisibleSumPairs function below.
+/*
+ *  getSecondElement: returns the number of possible second elements which when
+ *  summed up with the first number, their sum will be evenly divisible by k 
+ */
+int getSecondElement(int firstEementIndex, int firstEement, int k, vector<int> ar) {
+
+    int numberOfPairs = 0;
+        
+    for(int index = firstEementIndex+1; index < ar.size(); index++){
+        if( ((ar[firstEementIndex] + ar[index])%k) == 0 ){
+            numberOfPairs++;
+        }
+    }
+    return numberOfPairs;
+}
+
+/*
+ *  divisibleSumPairs: returns the number of possible pairs which when
+ *  summed up, their sum will be evenly divisible by k 
+ */
 int divisibleSumPairs(int n, int k, vector<int> ar) {
 
+    int numberOfPairs = 0;
 
+    if ( n < 2 ){
+        return numberOfPairs;
+    }
+    else{
+        
+        for(int index = 0; index < (n-1); index++){
+            numberOfPairs += getSecondElement(index, ar[index], k, ar);
+        }
+    }
+
+    return numberOfPairs;
 }
 
 int main()
