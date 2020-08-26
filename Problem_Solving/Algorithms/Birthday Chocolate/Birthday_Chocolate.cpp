@@ -5,10 +5,51 @@ using namespace std;
 string ltrim(const string &);
 string rtrim(const string &);
 vector<string> split(const string &);
+int checkFollowingSegments(vector<int> segment, int segemntIndex, int numberFollowingSegments);
+int birthday(vector<int> segment, int sumOfSegments, int numberOfSegments);
 
-// Complete the birthday function below.
-int birthday(vector<int> s, int d, int m) {
+/*
+ *   checkFollowingSegments: Calculates the sum of a number of following segements
+ *   in the chocolate bar
+ */
+int checkFollowingSegments(vector<int> segment, int segemntIndex, int numberFollowingSegments) {
 
+    int sum  = 0;
+
+    for (int index = segemntIndex; index < (segemntIndex + numberFollowingSegments); index++) {
+        sum += segment[index];
+    }
+
+    return sum;
+
+}
+
+/*
+ *   birthday: Calculates the number of combinations by which the chocolate bar
+ *   can be divided into a certain number of segments to get a specific sum
+ */
+int birthday(vector<int> segment, int sumOfSegments, int numberOfSegments) {
+
+    int numberOfCombination = 0;
+
+    if(numberOfSegments > segment.size()){
+        return numberOfCombination;
+    }
+
+    else{
+    
+        for (int index = 0; index < segment.size(); index++){
+
+            if(numberOfSegments > (segment.size() - index)){
+                return numberOfCombination;
+            }
+            else {
+                numberOfCombination += (int)(checkFollowingSegments(segment, index, numberOfSegments) == sumOfSegments);
+            }
+        }
+    }
+
+    return numberOfCombination;
 
 }
 
