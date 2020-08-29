@@ -5,9 +5,19 @@ using namespace std;
 vector<int> parseInts(string str);
 
 /*
- *	function: parseInts
+ *	Function name: 
+ *	parseInts
+ *
+ *	Parameters:
+ *	str: string to be parsed
+ *
+ *	return:
+ *	a vector of integers that contains the extracted integers
+ *
+ *	Function description:	 
  *	Exracts numerical data from strings and returns 
  *	them as a vector of intgers
+ *
  */
 vector<int> parseInts(string str) {
     int start = 0;
