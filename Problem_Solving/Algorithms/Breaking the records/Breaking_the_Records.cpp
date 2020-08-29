@@ -5,6 +5,25 @@ using namespace std;
 vector<string> split_string(string);
 vector<int> breakingRecords(vector<int> scores);
 
+
+/*
+ *	Function name: 
+ *	breakingRecords
+ *
+ *	Parameters:
+ *	str: string to be parsed
+ *
+ *	return:
+ *	a vector of integers that contains the number of 
+ *	times the best record has been broken and the 
+ *	number of times the worst time record has been broken
+ *
+ *	Function description:	 
+ *	Counts the number of times the best record has been  
+ *	broken and counts the number of times the worst 	
+ *	record has been broken
+ *
+ */
 vector<int> breakingRecords(vector<int> scores) {
     vector<int> result (2);
     int bestRecord = 0;
