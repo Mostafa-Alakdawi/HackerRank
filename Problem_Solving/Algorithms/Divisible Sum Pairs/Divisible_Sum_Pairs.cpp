@@ -40,8 +40,23 @@ int getSecondElement(int firstEementIndex, int firstEement, int k, vector<int> a
 }
 
 /*
- *  divisibleSumPairs: returns the number of possible pairs which when
- *  summed up, their sum will be evenly divisible by k 
+ *	Function name: 
+ *	divisibleSumPairs
+ *
+ *	Parameters:
+ *	n: Ineger that represents the number of elements
+ *	k: Ineger that represents the divisor
+ *	ar: Vector of the integers to be searched
+ *
+ *	return:
+ *	returns the number of possible pairs which when summed up,
+ *	their sum will be evenly divisible by k
+ *
+ *	Function description:	 
+ *	Searches through a vector of integers and returns the number of 
+ *	possible pairs which when summed up, their sum will be evenly 
+ *	divisible by k
+ *
  */
 int divisibleSumPairs(int n, int k, vector<int> ar) {
 
