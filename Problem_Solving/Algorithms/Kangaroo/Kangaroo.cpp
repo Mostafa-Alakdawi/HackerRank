@@ -4,12 +4,75 @@ using namespace std;
 
 vector<string> split_string(string);
 
+bool isCommonLocationReachable(int x1, int v1, int x2, int v2) {
+    bool commonLocationFound = false;
+    int jumpCounter = 0;
+
+    if(v2 > v1){
+        while(x2 < x1){
+
+            //jumpCounter++;
+
+            if( (x1+v1) == (x2+v2) ){
+                commonLocationFound = true;
+                break;
+            }
+            else{
+                //x1 += (v1*jumpCounter);
+                //x2 += (v2*jumpCounter);
+                x1 += v1;
+                x2 += v2;
+            }
+        }
+    }
+    else{
+        while(x2 > x1){
+
+            //jumpCounter++;
+
+            if( (x1+v1) == (x2+v2) ){
+                commonLocationFound = true;
+                break;
+            }
+            else{
+                x1 += v1;
+                x2 += v2;
+            }
+        }
+    }
+
+    return commonLocationFound;
+}
+
 // Complete the kangaroo function below.
 string kangaroo(int x1, int v1, int x2, int v2) {
 
+    string output = "NO";
 
+    if(x1 == x2){
+        output = "YES";
+        return output;
+    }
+    else if((v1 == 0) || (v2 == 0)){
+        return output;
+    }
+    else if((v1 > v2) && (x1 > x2)){
+        return output;
+    }
+    else if((v1 < v2) && (x1 < x2)){
+        return output;
+    }
+    else{
+
+        if(isCommonLocationReachable(x1, v1, x2, v2))
+            output = "YES";
+        
+        else
+            output = "NO";
+    }
+
+    return output;
 }
-
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
@@ -64,4 +127,3 @@ vector<string> split_string(string input_string) {
 
     return splits;
 }
-
