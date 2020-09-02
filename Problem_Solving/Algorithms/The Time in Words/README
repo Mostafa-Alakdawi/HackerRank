@@ -1,0 +1,20 @@
+Function Description
+
+Complete the timeInWords function in the editor below. It should return a time string as described.
+
+timeInWords has the following parameter(s):
+
+h: an integer representing hour of the day
+m: an integer representing minutes after the hour
+Input Format
+
+The first line contains h, the hours portion The second line contains m, the minutes portion
+
+Constraints
+
+ 1 <= h <= 12
+ 0 <= m <  60
+
+Output Format
+
+Print the time in words as described.
