@@ -3,48 +3,57 @@
 using namespace std;
 
 vector<string> split_string(string);
+bool isCommonLocationReachable(int x1, int v1, int x2, int v2);
+string kangaroo(int x1, int v1, int x2, int v2);
 
+/*
+ *	Function name: 
+ *	isCommonLocationReachable
+ *
+ *	Parameters:
+ *	x1: Ineger that represents the current location of the first kangaroo
+ *	v1: Ineger that represents the jump of the first kangaroo
+ *	x2: Ineger that represents the current location of the second kangaroo
+ *	v2: Ineger that represents the jump of the second kangaroo
+ *
+ *	return:
+ *	a boolean that indicates whether the two kangaroos can reach the same 
+ *	location at any point or not
+ *
+ *
+ *	Function description:	 
+ *	Takes the location and jump of the first and second kangaroo and  
+ *	return true if the two kangaroos can meet up at a common location. 
+ *  	Otherwse, return false.
+ *
+ */
 bool isCommonLocationReachable(int x1, int v1, int x2, int v2) {
-    bool commonLocationFound = false;
-    int jumpCounter = 0;
+    
+    return (bool)( ((x1 - x2)%(v2 - v1)) == 0);
 
-    if(v2 > v1){
-        while(x2 < x1){
-
-            //jumpCounter++;
-
-            if( (x1+v1) == (x2+v2) ){
-                commonLocationFound = true;
-                break;
-            }
-            else{
-                //x1 += (v1*jumpCounter);
-                //x2 += (v2*jumpCounter);
-                x1 += v1;
-                x2 += v2;
-            }
-        }
-    }
-    else{
-        while(x2 > x1){
-
-            //jumpCounter++;
-
-            if( (x1+v1) == (x2+v2) ){
-                commonLocationFound = true;
-                break;
-            }
-            else{
-                x1 += v1;
-                x2 += v2;
-            }
-        }
-    }
-
-    return commonLocationFound;
 }
 
-// Complete the kangaroo function below.
+/*
+ *	Function name: 
+ *	isCommonLocationReachable
+ *
+ *	Parameters:
+ *	x1: Ineger that represents the current location of the first kangaroo
+ *	v1: Ineger that represents the jump of the first kangaroo
+ *	x2: Ineger that represents the current location of the second kangaroo
+ *	v2: Ineger that represents the jump of the second kangaroo
+ *
+ *	return:
+ *	a string that indicates whether the two kangaroos can reach the same 
+ *	location at any point or not
+ *
+ *
+ *	Function description:	 
+ *	Takes the location and jump of the first and second kangaroo and  
+ *	return a string "YES" if the two kangaroos can meet up at a common 
+ *  	location. Otherwse, return a string "NO".
+ *
+ */
 string kangaroo(int x1, int v1, int x2, int v2) {
 
     string output = "NO";
@@ -62,6 +71,9 @@ string kangaroo(int x1, int v1, int x2, int v2) {
     else if((v1 < v2) && (x1 < x2)){
         return output;
     }
+    else if(v1 == v2){
+        return output;
+    }
     else{
 
         if(isCommonLocationReachable(x1, v1, x2, v2))
@@ -73,6 +85,7 @@ string kangaroo(int x1, int v1, int x2, int v2) {
 
     return output;
 }
+
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
