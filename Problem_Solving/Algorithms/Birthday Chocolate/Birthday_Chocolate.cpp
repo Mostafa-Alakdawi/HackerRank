@@ -9,8 +9,24 @@ int checkFollowingSegments(vector<int> segment, int segemntIndex, int numberFoll
 int birthday(vector<int> segment, int sumOfSegments, int numberOfSegments);
 
 /*
- *   checkFollowingSegments: Calculates the sum of a number of following segements
- *   in the chocolate bar
+ *	Function name: 
+ *	checkFollowingSegments
+ *
+ *	Parameters:
+ *	segment: a vector that contains the segements of chocolate
+ *	segemntIndex: an integer that represents the index of the segment
+ *	numberFollowingSegments: an integer that represents the number of
+ *	the following segements
+ *
+ *	return:
+ *	an integer that represents the sum of a number of following segements  
+ *	in the chocolate bar
+ *
+ *
+ *	Function description:	 
+ *	Calculates and returns the sum of a number of following segements  
+ *	in the chocolate bar
+ *
  */
 int checkFollowingSegments(vector<int> segment, int segemntIndex, int numberFollowingSegments) {
 
@@ -25,8 +41,26 @@ int checkFollowingSegments(vector<int> segment, int segemntIndex, int numberFoll
 }
 
 /*
- *   birthday: Calculates the number of combinations by which the chocolate bar
- *   can be divided into a certain number of segments to get a specific sum
+ *	Function name: 
+ *	birthday
+ *
+ *	Parameters:
+ *	segment: a vector that contains the segements of chocolate
+ *	sumOfSegments: an integer that represents the target sum of the
+ *		       segments	
+ *	numberOfSegments: an integer that represents the number of
+ *	 		  segements to be summed
+ *
+ *	return:
+ *	an integer that represents the number of combinations by which the 
+ *	chocolate bar can be divided into numberOfSegments of segments to get
+ *	sumOfSegments
+ *
+ *	Function description:	 
+ *	Calculates and returns the number of combinations by which the 
+ *	chocolate bar can be divided into numberOfSegments of segments to get
+ *	sumOfSegments
+ *
  */
 int birthday(vector<int> segment, int sumOfSegments, int numberOfSegments) {
 
