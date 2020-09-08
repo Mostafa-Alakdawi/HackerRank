@@ -5,7 +5,28 @@
 using namespace std;
 
 /* Define the exception here */
+class BadLengthException: public exception
+{
+  public:
+  int numberOfCharacter;
+  BadLengthException(int n){numberOfCharacter = n;};
+  ~BadLengthException(){};
+  //void getreturn(){cout << numberOfCharacter;}
+  virtual const char* what() const throw()
+  {
+    if(numberOfCharacter == 1)
+        //return("1");
 
+    if(numberOfCharacter == 2)
+        //return("2");
+    
+    string text = to_string(numberOfCharacter);
+    //getreturn();
+    cout << numberOfCharacter;
+
+    return "";
+  }
+};
 
 bool checkUsername(string username) {
 	bool isValid = true;
