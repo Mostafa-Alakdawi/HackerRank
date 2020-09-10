@@ -1,7 +1,18 @@
 #include <stdio.h>
 
 void update(int *a,int *b) {
-    // Complete this function    
+    // Complete this function
+    int tempSum = 0;
+    int tempSub = 0;
+
+    tempSum = (*a) + (*b);
+
+    if(*a > *b)
+        tempSub = (*a) - (*b);
+    else
+        tempSub = (*b) - (*a);    
+    *a = tempSum;
+    *b = tempSub;
 }
 
 int main() {
