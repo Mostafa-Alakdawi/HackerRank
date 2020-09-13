@@ -17,6 +17,67 @@ vector<string> split(const string &);
 
 vector<int> climbingLeaderboard(vector<int> ranked, vector<int> player) {
 
+    vector<int> ranks;
+    vector<int> result;
+    int prevValue = 0;
+
+    if( ranked.size() == 0 || player.size() == 0)
+        return result;
+    
+    ranks.push_back(prevValue);
+
+    for(int index = ranked.size()-1; index >= 0; index--){
+        
+        if(ranked[index] != prevValue)
+            ranks.push_back(ranked[index]);
+
+        prevValue = ranked[index];
+    }
+
+    /**For Debugging Only**/
+    /**
+    for(int index = 0; index < ranks.size(); index++){       
+        std::cout << ranks[index] <<std::endl;
+    }
+    **/
+
+    int currentRank = ranks[0];
+    int currentRankIndex = 0;
+    bool locked = false;
+
+    for(int index = 0; index < player.size(); index++){       
+
+        while( (player[index] >= currentRank)  ){
+
+            if((currentRankIndex == (ranks.size()-1)) && (index == (player.size()-1))){
+                result.push_back(ranks.size()-(currentRankIndex));            
+                return result;
+            }
+            else if((currentRankIndex == (ranks.size()-1)) && (index < (player.size()-1))){
+                result.push_back(ranks.size()-(currentRankIndex));
+                locked = true;
+                break;            
+            }
+            else{
+                currentRankIndex++;
+                currentRank = ranks[currentRankIndex];
+            }
+        }
+
+        if(! locked ){
+            result.push_back(ranks.size()-(currentRankIndex-1));
+        }
+
+    }
+
+    /**For Debugging Only**/
+    /**
+    for(int index = 0; index < result.size(); index++){       
+        std::cout << result[index] <<std::endl;
+    }
+    **/
+
+    return result;
 }
 
 int main()
