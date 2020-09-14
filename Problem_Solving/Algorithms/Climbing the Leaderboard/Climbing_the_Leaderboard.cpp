@@ -5,6 +5,7 @@ using namespace std;
 string ltrim(const string &);
 string rtrim(const string &);
 vector<string> split(const string &);
+vector<int> climbingLeaderboard(vector<int> ranked, vector<int> player);
 
 /*
  *	Function name: 
