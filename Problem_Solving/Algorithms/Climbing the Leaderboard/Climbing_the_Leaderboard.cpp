@@ -7,14 +7,21 @@ string rtrim(const string &);
 vector<string> split(const string &);
 
 /*
- * Complete the 'climbingLeaderboard' function below.
+ *	Function name: 
+ *	climbingLeaderboard
  *
- * The function is expected to return an INTEGER_ARRAY.
- * The function accepts following parameters:
- *  1. INTEGER_ARRAY ranked
- *  2. INTEGER_ARRAY player
+ *	Parameters:
+ *	ranked: a vector that contains the scores of the other ranked players
+ *	player: a vector that contains the scores of the player to be ranked
+ *
+ *	return:
+ *	a vector that contains the ranks the player gets for every score
+ *
+ *	Function description:	 
+ *	Calculates the rank the player gets for each then stores them in a  
+ *	vector and returns the vector	
+ *
  */
-
 vector<int> climbingLeaderboard(vector<int> ranked, vector<int> player) {
 
     vector<int> ranks;
