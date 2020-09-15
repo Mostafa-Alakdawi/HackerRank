@@ -2,6 +2,10 @@
 
 using namespace std;
 
+void multipy(vector<int> &factorialResultVector, int multiplier, int &numberOfDigits);
+void extraLongFactorials(int n);
+
+
 void multipy(vector<int> &factorialResultVector, int multiplier, int &numberOfDigits){
 
     int carry = 0;    
