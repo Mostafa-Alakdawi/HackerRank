@@ -2,50 +2,68 @@
 
 using namespace std;
 
-string ltrim(const string &);
-string rtrim(const string &);
-vector<string> split(const string &);
+vector<string> split_string(string);
 
-/*
- * Complete the 'nonDivisibleSubset' function below.
- *
- * The function is expected to return an INTEGER.
- * The function accepts following parameters:
- *  1. INTEGER k
- *  2. INTEGER_ARRAY s
- */
+struct movementPatters{
+    bool vertical;
+    bool horizontal;
+    bool diagonalRightLeft;
+    bool diagonalLeftRight;
+};
 
-int nonDivisibleSubset(int k, vector<int> s) {
+class chessPiece{
+    private:
+        string name;
+};
 
+class queen:public chessPiece{
+
+};
+
+class boardScanner{
+
+};
+
+// Complete the queensAttack function below.
+int queensAttack(int n, int k, int r_q, int c_q, vector<vector<int>> obstacles) {
+
+    return 0;
 }
 
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
 
-    string first_multiple_input_temp;
-    getline(cin, first_multiple_input_temp);
+    string nk_temp;
+    getline(cin, nk_temp);
 
-    vector<string> first_multiple_input = split(rtrim(first_multiple_input_temp));
+    vector<string> nk = split_string(nk_temp);
 
-    int n = stoi(first_multiple_input[0]);
+    int n = stoi(nk[0]);
 
-    int k = stoi(first_multiple_input[1]);
+    int k = stoi(nk[1]);
 
-    string s_temp_temp;
-    getline(cin, s_temp_temp);
+    string r_qC_q_temp;
+    getline(cin, r_qC_q_temp);
 
-    vector<string> s_temp = split(rtrim(s_temp_temp));
+    vector<string> r_qC_q = split_string(r_qC_q_temp);
 
-    vector<int> s(n);
+    int r_q = stoi(r_qC_q[0]);
 
-    for (int i = 0; i < n; i++) {
-        int s_item = stoi(s_temp[i]);
+    int c_q = stoi(r_qC_q[1]);
 
-        s[i] = s_item;
+    vector<vector<int>> obstacles(k);
+    for (int i = 0; i < k; i++) {
+        obstacles[i].resize(2);
+
+        for (int j = 0; j < 2; j++) {
+            cin >> obstacles[i][j];
+        }
+
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
 
-    int result = nonDivisibleSubset(k, s);
+    int result = queensAttack(n, k, r_q, c_q, obstacles);
 
     fout << result << "\n";
 
@@ -54,41 +72,31 @@ int main()
     return 0;
 }
 
-string ltrim(const string &str) {
-    string s(str);
+vector<string> split_string(string input_string) {
+    string::iterator new_end = unique(input_string.begin(), input_string.end(), [] (const char &x, const char &y) {
+        return x == y and x == ' ';
+    });
 
-    s.erase(
-        s.begin(),
-        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
-    );
+    input_string.erase(new_end, input_string.end());
 
-    return s;
-}
-
-string rtrim(const string &str) {
-    string s(str);
-
-    s.erase(
-        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
-        s.end()
-    );
-
-    return s;
-}
-
-vector<string> split(const string &str) {
-    vector<string> tokens;
-
-    string::size_type start = 0;
-    string::size_type end = 0;
-
-    while ((end = str.find(" ", start)) != string::npos) {
-        tokens.push_back(str.substr(start, end - start));
-
-        start = end + 1;
+    while (input_string[input_string.length() - 1] == ' ') {
+        input_string.pop_back();
     }
 
-    tokens.push_back(str.substr(start));
+    vector<string> splits;
+    char delimiter = ' ';
 
-    return tokens;
+    size_t i = 0;
+    size_t pos = input_string.find(delimiter);
+
+    while (pos != string::npos) {
+        splits.push_back(input_string.substr(i, pos - i));
+
+        i = pos + 1;
+        pos = input_string.find(delimiter, i);
+    }
+
+    splits.push_back(input_string.substr(i, min(pos, input_string.length()) - i + 1));
+
+    return splits;
 }
