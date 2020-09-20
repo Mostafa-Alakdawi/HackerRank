@@ -4,30 +4,118 @@ using namespace std;
 
 vector<string> split_string(string);
 
-struct movementPatters{
-    bool vertical;
-    bool horizontal;
-    bool diagonalRightLeft;
-    bool diagonalLeftRight;
-};
+enum movementDirections { vertical, horizontal, diagonalRightLeft, diagonalLeftRight };
 
-class chessPiece{
+class queen{
     private:
-        string name;
+        int _row;
+        int _colomn;
+
+    public:
+        queen(int row, int colomn){
+            _row = row;
+            _colomn = colomn;
+        }
+
+        int getRow(){return _row;}
+        int getColomn(){return _colomn;}
 };
 
-class queen:public chessPiece{
+class chessBoard{
+    private:
+        vector<vector<int> > board;
 
-};
+    public:
+        chessBoard(int size){
+            board = vector<vector<int> > ( size, vector<int> (size, 0));
+        }  
 
-class boardScanner{
+        void setObstaclesOnChessBoard(vector<vector<int>> obstacles){
+            
+            for(int row =0; row < obstacles.size(); row++){
+                for(int colomn =0; colomn < 2; colomn++){
+                    board[row][colomn] = 1;
+                }
+            }
+        }
 
+        void printCellsChessBoard(void){
+            
+            for(int row =0; row < board.size(); row++){
+                for(int colomn =0; colomn < board.size(); colomn++){
+                    std::cout << board[row][colomn] << std::endl;
+                }
+            }
+        }
+
+        void moveVeritical(queen &Queen, int &numberOfAllPossibleMoves){
+            vector<int> allPossibleMoves;
+            int row = Queen.getRow();
+            int colomn = Queen.getColomn();
+
+            for(int rowIndex = row; rowIndex < board.size(); rowIndex++){
+                
+                if( board[rowIndex][colomn] == 0)
+                    numberOfAllPossibleMoves++;
+
+                else 
+                    break;
+            }
+
+            for(int rowIndex = row; rowIndex > 0; rowIndex--){
+                
+                if( board[rowIndex][colomn] == 0)
+                    numberOfAllPossibleMoves++;
+
+                else 
+                    break;
+            }
+
+        }
+
+        void moveHorizontal(queen &Queen, int &numberOfAllPossibleMoves){
+            vector<int> allPossibleMoves;
+            int row = Queen.getRow();
+            int colomn = Queen.getColomn();
+
+            for(int colomnIndex = row; colomnIndex < board.size(); colomnIndex++){
+                
+                if( board[row][colomnIndex] == 0)
+                    numberOfAllPossibleMoves++;
+
+                else 
+                    break;
+            }
+
+            for(int colomnIndex = row; colomnIndex > 0; colomnIndex--){
+                
+                if( board[row][colomnIndex] == 0)
+                    numberOfAllPossibleMoves++;
+
+                else 
+                    break;
+            }
+
+        }
+
+        int findAllPossibleMoves(queen &Queen){
+            int numberOfAllPossibleMoves;
+            int row = Queen.getRow();
+            int colomn = Queen.getColomn();
+
+            return numberOfAllPossibleMoves;
+        }
 };
 
 // Complete the queensAttack function below.
 int queensAttack(int n, int k, int r_q, int c_q, vector<vector<int>> obstacles) {
 
-    return 0;
+    queen Queen = queen(r_q, c_q);
+    chessBoard ChessBoard = chessBoard(n);
+    ChessBoard.setObstaclesOnChessBoard(obstacles);
+    ChessBoard.printCellsChessBoard();
+
+    return ChessBoard.findAllPossibleMoves(Queen);
 }
 
 int main()
