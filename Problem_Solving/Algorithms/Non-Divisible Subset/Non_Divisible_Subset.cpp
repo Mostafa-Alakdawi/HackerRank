@@ -40,7 +40,6 @@ int nonDivisibleSubset(int divisor, vector<int> setOfNumbers);
  */
 int nonDivisibleSubset(int divisor, vector<int> setOfNumbers) {
 
-    int counter = 0;
     int maxCounter = 0;
     vector<int> countersOfModulusFrequency (divisor,0);
 
@@ -49,9 +48,7 @@ int nonDivisibleSubset(int divisor, vector<int> setOfNumbers) {
 
     /**for debugging purposes
     for(int index = 0; index < countersOfModulusFrequency.size(); index++){
-
-            std::cout << "Hello " << index << " " << countersOfModulusFrequency[index] <<std::endl;
-
+    	std::cout << "Hello " << index << " " << countersOfModulusFrequency[index] <<std::endl;
     }
     **/
 
