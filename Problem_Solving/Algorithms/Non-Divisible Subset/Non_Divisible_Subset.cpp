@@ -16,6 +16,28 @@ int nonDivisibleSubset(int divisor, vector<int> setOfNumbers);
  *  2. INTEGER_ARRAY s
  */
 
+/*
+ *	Function name: 
+ *	nonDivisibleSubset
+ *
+ *	Parameters:
+ *	int: the divisor
+ *	vector<int>: the set of numbers
+ *
+ *	return:
+ *	An integer the represents th size of the 
+ *      largest set of numbers that can't be evenly 
+ *	divided by the divisor
+ *
+ *	Function description:	 
+ *	Checks the set of numbers to determine which 
+ *	numbers can be summed together without creating 
+ *	a number that can't be evenly divided by the divisor
+ *	then returns an integer that represents the largest 
+ *	set that can contain these numbers whose sum can't 
+ *      be evenly divided by the divisor
+ *
+ */
 int nonDivisibleSubset(int divisor, vector<int> setOfNumbers) {
 
     int counter = 0;
