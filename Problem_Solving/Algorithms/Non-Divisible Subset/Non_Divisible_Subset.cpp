@@ -15,8 +15,32 @@ vector<string> split(const string &);
  *  2. INTEGER_ARRAY s
  */
 
-int nonDivisibleSubset(int k, vector<int> s) {
+int nonDivisibleSubset(int divisor, vector<int> setOfNumbers) {
 
+    int counter = 0;
+    int maxCounter = 0;
+    vector<int> countersOfModulusFrequency (divisor,0);
+
+    for(int index = 0; index < setOfNumbers.size(); index++)
+        countersOfModulusFrequency[setOfNumbers[index]%divisor]++;
+
+    /**for debugging purposes
+    for(int index = 0; index < countersOfModulusFrequency.size(); index++){
+
+            std::cout << "Hello " << index << " " << countersOfModulusFrequency[index] <<std::endl;
+
+    }
+    **/
+
+    if (divisor % 2 == 0) 
+        countersOfModulusFrequency[divisor/2] = min(countersOfModulusFrequency[divisor/2], 1); 
+
+    maxCounter = min(countersOfModulusFrequency[0],1);
+
+    for (int index = 1; index <= divisor/2; index++) 
+        maxCounter += max(countersOfModulusFrequency[index], countersOfModulusFrequency[divisor-index]); 
+
+    return maxCounter;
 }
 
 int main()
