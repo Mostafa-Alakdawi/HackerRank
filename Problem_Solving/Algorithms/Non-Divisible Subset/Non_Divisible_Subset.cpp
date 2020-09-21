@@ -5,6 +5,7 @@ using namespace std;
 string ltrim(const string &);
 string rtrim(const string &);
 vector<string> split(const string &);
+int nonDivisibleSubset(int divisor, vector<int> setOfNumbers);
 
 /*
  * Complete the 'nonDivisibleSubset' function below.
