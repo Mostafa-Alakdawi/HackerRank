@@ -22,6 +22,50 @@ using namespace std;
 
 //Overload operator << as specified
 //ostream& operator<<(ostream& out, Box& B)
+class Box{
+// Constructors: 
+public:
+  int l,b,h;
+  Box(){
+    l = 0; b = 0; h = 0;
+  };
+  Box(int inl,int inb,int inh){
+    l = inl;
+    b = inb;
+    h = inh;
+  };
+  Box(Box &B){
+    l = B.l;
+    b = B.b;
+    h = B.h;
+  };
+
+//private:
+ //int l,b,h;
+ int getLength(){return l;}; // Return box's length
+ int getBreadth(){return b;}; // Return box's breadth
+ int getHeight(){return h;};  //Return box's height
+ long long CalculateVolume(){return (long long)l*b*h;}; // Return the volume of the box
+};
+//Overload operator < as specified
+bool operator<(Box& a, Box& b){
+    if(a.l < b.l)
+        return true;
+    if( (a.b < b.b) && (a.l == b.l))
+        return true;
+    if( (a.h < b.h) && (a.b == b.b) && (a.l == b.l))
+        return true;
+    return false;
+}
+
+//Overload operator << as specified
+//ostream& operator<<(ostream& out, Box& B)
+// This is automatically called when '+' is used with 
+// between two Complex objects 
+ostream& operator<<(ostream& out, Box& B){ 
+    out << B.l<< " " <<B.b << " " <<B.h;  
+    return out; 
+} 
 
 
 void check2()
