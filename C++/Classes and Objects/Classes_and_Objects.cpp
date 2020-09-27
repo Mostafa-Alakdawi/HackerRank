@@ -6,7 +6,31 @@
 #include <cassert>
 using namespace std;
 
+#define NUMBEROFSCORES (int)(5)
+
 // Write your Student class here
+class Student{
+    private:
+        vector<int> scores;
+    public:
+        void input(){
+            for (int Count = 0; Count < NUMBEROFSCORES; Count++) {
+                int temp = 0;
+                cin >> temp; 
+                scores.push_back(temp);
+            }
+        }
+
+        int calculateTotalScore(){
+            int sum = 0;
+            
+            for (int Count = 0; Count < NUMBEROFSCORES; Count++) 
+                sum += scores[Count];
+        
+            return sum;
+        }
+
+};
 
 int main() {
     int n; // number of students
