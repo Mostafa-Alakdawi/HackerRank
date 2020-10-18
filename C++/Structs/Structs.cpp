@@ -8,6 +8,13 @@ using namespace std;
 /*
     add code for struct here.
 */
+struct Student {
+    int age;
+    int standard;
+    string first_name;
+    string last_name;    
+};
+
 
 int main() {
     Student st;
@@ -17,3 +24,4 @@ int main() {
     
     return 0;
 }
+
