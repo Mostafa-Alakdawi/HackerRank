@@ -4,6 +4,34 @@ using namespace std;
 /*
  * Create classes Rectangle and RectangleArea
  */
+class Rectangle{
+    protected:
+        int width;
+        int height;
+
+    public:
+        void read_input(){
+            cin >> width;
+            cin >> height;
+        }
+
+        void display(){
+            cout << width << " "<< height << endl;
+        }
+
+};
+
+class RectangleArea:public Rectangle{
+    private:
+        int Area;
+
+    public:
+
+        void display(){
+            cout << width * height;
+        }
+
+};
 
 
 int main()
