@@ -4,6 +4,9 @@ using namespace std;
 
 /*
 Add `int max_of_four(int a, int b, int c, int d)` here.
+
+returns the max of three input integers
+
 */
 int max_of_four(int a, int b, int c, int d){
     int max = 0;
